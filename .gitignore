@@ -1,0 +1,13 @@
+# Mac Basic
+.DS_Store
+
+# Configuration
+compile.sh
+pocket.xpi
+
+
+# Jars
+/chrome/isreaditlater.jar
+/chrome/pocket.jar
+
+/pocket.xpi

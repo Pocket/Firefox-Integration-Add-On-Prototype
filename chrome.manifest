@@ -1,0 +1,5 @@
+locale pocket en-US jar:chrome/pocket.jar!/locale/en-US/
+
+content pocket jar:chrome/pocket.jar!/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://pocket/content/overlay.xul
+skin pocket classic/1.0 jar:chrome/pocket.jar!/skin/

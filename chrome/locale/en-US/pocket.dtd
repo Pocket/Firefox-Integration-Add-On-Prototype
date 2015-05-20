@@ -1,0 +1,15 @@
+<!-- General -->
+<!ENTITY pkt.Pocket "Pocket">
+
+
+<!-- Toolbar Buttons -->
+<!ENTITY pkt.SaveToPocket "Save to Pocket">
+
+
+<!-- Context Menus -->
+<!ENTITY pkt.SaveLinkToPocket "Save Link to Pocket">
+<!ENTITY pkt.SavePageToPocket "Save Page to Pocket">
+
+
+<!-- Bookmarks Overlay -->
+<!ENTITY pkt.OpenPocket "Show Pocket List">

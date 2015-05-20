@@ -1,0 +1,9 @@
+*.settings
+*.project
+*/*.svn/*
+*.class
+*.jdb
+*.id
+*.lck
+*.idl
+*.txt

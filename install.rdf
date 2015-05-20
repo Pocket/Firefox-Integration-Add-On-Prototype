@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+    <Description about="urn:mozilla:install-manifest">
+
+        <!-- Required Items -->
+        <em:id>pocket@readitlater.com</em:id>
+        <em:name>Pocket</em:name>
+        <em:version>1.0</em:version>
+       	<em:type>2</em:type>
+		<em:unpack>true</em:unpack>
+		<!-- TODO: Add Bootstrap support if possible -->
+
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>37.0</em:minVersion>
+                <em:maxVersion>41.0</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+        <!-- Optional Items -->
+        <em:creator>Read It Later, Inc</em:creator>
+        <em:description>Pocket service for Firefox. The best way to save articles, videos and more.</em:description>  <!-- Update locale as well -->
+        <em:homepageURL>http://getpocket.com/?src=firefox_native</em:homepageURL>
+		<em:iconURL>chrome://pocket/skin/icon.png</em:iconURL> <!-- TODO: Anyway to provide a @2x asset here? -->
+
+    </Description>
+</RDF>

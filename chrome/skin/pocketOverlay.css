@@ -1,0 +1,74 @@
+/* -- Toolbar button -- */
+
+#pocket-menu-button { 
+	list-style-image: url("chrome://pocket/skin/browser-action-icon-24.png");
+} 
+#pocket-menu-button.pkt_added { 
+	list-style-image: url("chrome://pocket/skin/browser-action-icon-added-24.png");
+} 
+
+toolbar[iconsize="small"] #pocket-menu-button { 
+	list-style-image: url("chrome://pocket/skin/browser-action-icon-19.png");
+}
+toolbar[iconsize="small"] #pocket-menu-button.pkt_added { 
+	list-style-image: url("chrome://pocket/skin/browser-action-icon-added-19.png");
+}
+
+
+/* -- Panel (XUL side, not HTML inside of iframe) -- */
+
+#pocket-panel .panel-arrowcontent {
+	padding: 0px; /* stretch the panel contents to the edges */
+}
+
+
+/* ----- BOOKMARK STAR ANIMATION ----- 
+
+Influenced from bookmark star animation:
+https://dxr.mozilla.org/mozilla-central/source/browser/base/content/browser-places.js#1568
+https://dxr.mozilla.org/mozilla-central/source/browser/themes/osx/browser.css#472
+
+TODO - Need to pull the styles for windows and linux
+TODO - [Nice to have] This is currently hard-coding the assumed positions of the icons and therefore we disable it
+		if the Pocket button isn't next to the bookmark button. Ideally in the future we could dynamically do this for 
+		any position
+*/
+
+/*  */
+
+@keyframes animation-pocketAdded {
+  from { transform: rotate(0deg) translateX(0px) rotate(0deg) scale(1); opacity: 0; }
+  60%  { transform: rotate(-180deg) translateX(32px) rotate(180deg) scale(1.8); opacity: 1; }
+  80%  { opacity: 1; }
+  to   { transform: rotate(-180deg) translateX(32px) rotate(180deg) scale(1); opacity: 0; }
+}
+
+#pocketed-notification-container {
+  min-height: 1px;
+  min-width: 1px;
+  height: 1px;
+  margin-bottom: -1px;
+  z-index: 5;
+  position: relative;
+}
+
+#pocketed-notification {
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+}
+
+#pocketed-notification-anchor[notification="finish"] > #pocketed-notification {
+  background-image: url("chrome://pocket/skin/pocket-notification-finish.png");
+  animation: animation-pocketAdded 800ms;
+  animation-timing-function: ease, ease, ease;
+}
+
+@media (min-resolution: 2dppx) {
+  #pocketed-notification-anchor[notification="finish"] > #pocketed-notification {
+    background-image: url("chrome://pocket/skin/pocket-notification-finish@2x.png");
+  }
+}

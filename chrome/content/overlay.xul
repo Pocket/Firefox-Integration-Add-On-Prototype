@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://pocket/locale/pocket.dtd">
+
+<?xml-stylesheet href="chrome://pocket/skin/pocketOverlay.css" type="text/css"?>
+
+<overlay id="pocket-overlay"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <popup id="contentAreaContextMenu">
+      <menuitem id="PKT_context_saveLink" insertafter="context-bookmarklink" label="&pkt.SaveLinkToPocket;" tooltiptext="" oncommand="pktUI.pocketContextSavePageOnCommand(event);"/>
+      <menuitem id="PKT_context_savePage" insertafter="context-sharepage" label="&pkt.SavePageToPocket;" oncommand="pktUI.pocketContextSaveLinkOnCommand(event);"/>
+    </popup>
+
+    <menupopup id="BMB_bookmarksPopup">
+      <menuitem xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" id="BMB_openPocketWebapp" class="subviewbutton" insertbefore="BMB_viewBookmarksSidebar" label="&pkt.OpenPocket;" oncommand="pktUI.pocketBookmarkBarOpenPocketCommand(event);">
+      </menuitem>
+    </menupopup>
+
+    <toolbarpalette id="BrowserToolbarPalette">
+        <toolbarbutton id="pocket-menu-button" tooltiptext="&pkt.SaveToPocket;"
+           label="&pkt.Pocket;" oncommand="pktUI.pocketButtonOnCommand(event)" class="toolbarbutton-1 chromeclass-toolbar-additional" cui-areatype="toolbar" state="">
+        </toolbarbutton>
+    </toolbarpalette>
+    
+    <popupset id="mainPopupSet">
+	    <hbox id="pocketed-notification-container" mousethrough="always">
+	      <vbox id="pocketed-notification-anchor">
+	        <vbox id="pocketed-notification"/>
+	      </vbox>
+	    </hbox>
+	    
+       	<panel id="pocket-panel"
+           type="arrow"
+           noautofocus="true"
+           consumeoutsideclicks="true"
+           onpopupshown="pktUI.pocketPanelDidShow(event)"
+           onpopuphidden="pktUI.pocketPanelDidHide(event)"
+           level="parent">
+        		<hbox id="pocket-panel-container" align="top" flex="1">
+            		<iframe id="pocket-panel-iframe" flex="1"/>
+        		</hbox>
+    	</panel>
+	</popupset>
+
+  <script type="application/x-javascript" src="chrome://pocket/content/pktApi.js" />
+  <script type="application/x-javascript" src="chrome://pocket/content/main.js" />
+
+</overlay>
